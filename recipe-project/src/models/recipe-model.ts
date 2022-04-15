@@ -1,13 +1,21 @@
 export interface ApiResponse{
-    hit: Hit[];
+    hits: Hits[];
   }
   
-export interface Hit{
+export interface Hits{
     recipe: Recipe;
   }
   
 export interface Recipe{
-    label: string
-    //any other details we want
+    label: string;
+    image: string;
+    yield: number;
+    dietLabels: string;
+    calories: number;
+    totalTime: number;
+    source: string;
+    url: string;
+    ingredientLines: string;
+    //any other details we want??
 }
   
