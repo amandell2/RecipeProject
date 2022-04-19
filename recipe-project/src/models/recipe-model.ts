@@ -7,6 +7,7 @@ export interface Hits{
   }
   
 export interface Recipe{
+
     label: string;
     image: string;
     yield: number;
@@ -16,6 +17,7 @@ export interface Recipe{
     source: string;
     url: string;
     ingredientLines: string;
+    id:number;
     //any other details we want??
 }
   
