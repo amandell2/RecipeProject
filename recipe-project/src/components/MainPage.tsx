@@ -24,7 +24,7 @@ export default function MainPage(){
             {recipeList.map((data, i)=>
                 <>
                <BasicRecipe key={i} recipe={data.recipe}/>
-               <button onClick={()=>navigate('/details', {state: {recipe: data.recipe}})}>Details</button>
+               <Link to="/details" state={{recipe: data.recipe}}><button>Details</button></Link>
                {/* 
                {showDetails === true && <RecipeDetails recipe={data.recipe}/>}
                */}

@@ -9,8 +9,8 @@ interface Props{
 }
 
 export default function RecipeDetails(){
-    const {state} = useLocation();
-    const {recipe} = state as any;
+    const location = useLocation();
+    const { recipe } = location.state as any;
     return(
         <div>
            <h2>{recipe.label}</h2>
