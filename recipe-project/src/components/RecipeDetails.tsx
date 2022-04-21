@@ -13,7 +13,7 @@ export default function RecipeDetails(){
    
     return(
         <div className="RecipeDetails_container">
-           <h2>{recipe.label}</h2>
+           <h2 className="RecipeDetails_title">{recipe.label}</h2>
            <div className="RecipeDetails_sideBySide">
                <img src={recipe.image}></img>
                <ul>
