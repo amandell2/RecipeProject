@@ -1,0 +1,60 @@
+h2{
+    text-align: center;
+    background-color: peachpuff;
+}
+
+a:hover {
+    color: peachpuff;
+    background-color: #915A5A;
+}
+
+a {
+    color: #915A5A;
+}
+  
+a:visited {
+    color: #915A5A;
+}
+
+.RecipeDetails_container{
+    border-style: solid;
+    border-radius: 15%;
+    border-color: #915A5A;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 45px;
+    color: #915A5A;
+}
+
+.RecipeDetails_sideBySide{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+img{
+    width: 75%;
+
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .RecipeDetails_container{
+        width: 60%;
+    }
+
+    .RecipeDetails_sideBySide{
+        display: flex;
+        flex-direction: column;
+    }
+
+    img{
+        width: 75%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+  }

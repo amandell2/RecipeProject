@@ -1,14 +1,15 @@
 import BasicRecipe from "./BasicRecipe";
-import { useEffect, useState } from "react";
-import { Hits} from "../models/recipe-model";
+import { useContext, useEffect, useState } from "react";
+import { Hits, Recipe} from "../models/recipe-model";
 import { fetchHits} from "../service/RecipeApiService";
-import { Link, useNavigate } from "react-router-dom";
-import RecipeDetails from "./RecipeDetails";
+import { Link } from "react-router-dom";
+import RecipeContext from "../context/RecipeContext";
+import "./MainPage.css";
+
 
 export default function MainPage(){
-    const [showDetails, setShowDetails] = useState(false)
     const [recipeList, setRecipeList] = useState<Hits[]>([]);
-    const navigate = useNavigate();
+    const {recipe, addRecipe} = useContext(RecipeContext);
 
     useEffect(()=>{
         fetchHits().then(data =>{
@@ -18,20 +19,17 @@ export default function MainPage(){
 
     return(
         <div>
-            <h1><Link to="/">Dinner Recipes</Link></h1>
-            <button>Search Recipes</button>
-            <main>
+            <button className="searchBtn">Search Recipes</button>
+            <main className="MainPage_RecipeDisplay">
             {recipeList.map((data, i)=>
-                <>
+                <div className="MainPage_SingleRecipe">
                <BasicRecipe key={i} recipe={data.recipe}/>
-               <Link to="/details" state={{recipe: data.recipe}}><button>Details</button></Link>
-               {/* 
-               {showDetails === true && <RecipeDetails recipe={data.recipe}/>}
-               */}
-               
-               </>
+               <div className="MainPage_BtnDisplay">
+                    <Link to="/details" state={{recipe: data.recipe}}><button>Details</button></Link>
+                    <button onClick={()=>addRecipe(data.recipe)}>Add to Favorites</button>
+               </div>
+               </div>
             )}
-            
             </main>
             
         </div>
