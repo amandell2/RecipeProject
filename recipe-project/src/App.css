@@ -1,0 +1,17 @@
+body{
+    font-family: 'Anybody', cursive;
+}
+
+header{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #915A5A;
+    padding: 0px 30px;
+    
+}
+
+button{
+    font-family: 'Anybody', cursive;
+}

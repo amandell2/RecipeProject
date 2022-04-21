@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Hits, Recipe } from "../models/recipe-model";
 import { fetchHits } from "../service/RecipeApiService";
+import "./BasicRecipe.css";
 
 interface Props{
     recipe: Recipe;
@@ -16,8 +17,8 @@ export default function BasicRecipe({recipe}: Props){
                <img src={recipe.image}></img>
                <ul>
                    <li>Serves: {recipe.yield}</li>
-                   <li>{recipe.dietLabels}</li>
-                   <li>Calories: {recipe.calories}</li>
+                   {recipe.dietLabels != "" && <li>{recipe.dietLabels}</li>}
+                   <li>Calories: {recipe.calories.toFixed()}</li>
                </ul>
             </>
             

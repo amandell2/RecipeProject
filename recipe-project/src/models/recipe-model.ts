@@ -16,8 +16,7 @@ export interface Recipe{
     totalTime: number;
     source: string;
     url: string;
-    ingredientLines: string;
+    ingredientLines: string[];
     id:number;
-    //any other details we want??
 }
   
