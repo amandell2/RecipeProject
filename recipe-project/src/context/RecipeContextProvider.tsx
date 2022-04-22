@@ -31,6 +31,7 @@ export default function RecipeContextProvider({children}:Props){
         function removeRecipe (id: number ): void {
             const index = recipe.findIndex(recipe => recipe.id === id);
             setRecipe(prev => [...prev.slice(0,index)])
+            console.log("removed recipe:", recipe[index]);
         }
 
         return(

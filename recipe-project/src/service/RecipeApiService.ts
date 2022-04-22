@@ -15,17 +15,17 @@ export function fetchHits(userSearch: string = "dinner"): Promise<Hits[]>{
 }
 
 export function fetchFilteredHits(recipeSearch: RecipeSearch): Promise<Hits[]>{
-    if(recipeSearch.label && !recipeSearch.health && recipeSearch.calories==="-"){
+    if(recipeSearch.label && !recipeSearch.health && !recipeSearch.mealType){
         return axios.get("https://api.edamam.com/api/recipes/v2?type=public&q="+recipeSearch.label+"&app_id="+appId+"&app_key="+apiKey)
         .then((response)=> {return response.data.hits});
-    }else if(recipeSearch.label && recipeSearch.health && recipeSearch.calories==="-"){
+    }else if(recipeSearch.label && recipeSearch.health && !recipeSearch.mealType){
         return axios.get("https://api.edamam.com/api/recipes/v2?type=public&q="+recipeSearch.label+"&health="+recipeSearch.health+"&app_id="+appId+"&app_key="+apiKey)
         .then((response)=> {return response.data.hits});
-    }else if(recipeSearch.label && recipeSearch.calories && !recipeSearch.health ){
-        return axios.get("https://api.edamam.com/api/recipes/v2?type=public&q="+recipeSearch.label+"&calories="+recipeSearch.calories+"&app_id="+appId+"&app_key="+apiKey)
+    }else if(recipeSearch.label && recipeSearch.mealType && !recipeSearch.health ){
+        return axios.get("https://api.edamam.com/api/recipes/v2?type=public&q="+recipeSearch.label+"&mealType="+recipeSearch.mealType+"&app_id="+appId+"&app_key="+apiKey)
         .then((response)=> {return response.data.hits});
     }else{
-        return axios.get("https://api.edamam.com/api/recipes/v2?type=public&q="+recipeSearch.label+"&health="+recipeSearch.health+"&calories="+recipeSearch.calories+"&app_id="+appId+"&app_key="+apiKey)
+        return axios.get("https://api.edamam.com/api/recipes/v2?type=public&q="+recipeSearch.label+"&health="+recipeSearch.health+"&mealType="+recipeSearch.mealType+"&app_id="+appId+"&app_key="+apiKey)
         .then((response)=> {return response.data.hits});
     }
 }

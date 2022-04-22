@@ -23,5 +23,5 @@ export interface Recipe{
 export interface RecipeSearch{
   label: string;
   health: string;
-  calories: string;
+  mealType: string;
 }

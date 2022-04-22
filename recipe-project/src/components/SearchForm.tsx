@@ -11,8 +11,7 @@ interface Props {
 function SearchForm({onSubmit}: Props) {
     const [label, setlabel] =useState('');
     const [healthLabel, setHealthLabel] = useState('');
-    const [minCalories, setMinCalories] = useState('');
-    const [maxCalories, setMaxCalories] = useState('');
+    const [mealType, setMealType] = useState('');
 
     //Set min & max
  function handleSubmit(e:FormEvent) {
@@ -20,15 +19,14 @@ function SearchForm({onSubmit}: Props) {
     const recipe: RecipeSearch ={
         label: label,
         health: healthLabel,
-        calories: `${minCalories}-${maxCalories}`
+        mealType: mealType
     }
 
     onSubmit(recipe);
 
     setlabel('');
     setHealthLabel('');
-    setMinCalories('');
-    setMaxCalories('');
+    setMealType('');
 
 }
 
@@ -38,8 +36,6 @@ function SearchForm({onSubmit}: Props) {
                 <p>
                     <label htmlFor='label'>Keyword</label>
                     <input id = "label" value = {label} onChange ={e => setlabel(e.target.value)} required/> 
-                </p>
-                <p>
                     <label htmlFor="health_labels">Restrictions</label>
                     {/*<input id='health_labels' value={healthLabel} onChange={e => setHealthLabel(e.target.value)}/>*/}
                     <select id='health_labels' value={healthLabel} onChange={e => setHealthLabel(e.target.value)}>
@@ -52,10 +48,15 @@ function SearchForm({onSubmit}: Props) {
                     </select>
                 </p>
                 <p>
-                    <label htmlFor='minCalories'>Minimum Calories</label>
-                    <input id ="calories" type="number" value={minCalories} onChange={e => setMinCalories(e.target.value)}/>
-                    <label htmlFor='minCalories'>Maximum Calories</label>
-                    <input id ="calories" type="number" value={maxCalories} onChange={e => setMaxCalories(e.target.value)}/>
+                    <p>Meal Type</p>
+                    <input id ="breakfast" type="radio" value="breakfast" checked={mealType==="breakfast"} onChange={e => setMealType(e.target.value)}/>
+                    <label htmlFor='breakfast'>Breakfast</label>
+                    <input id ="lunch" type="radio" value="lunch" checked={mealType==="lunch"}  onChange={e => setMealType(e.target.value)}/>
+                    <label htmlFor='lunch'>Lunch</label>
+                    <input id ="dinner" type="radio" value="dinner" checked={mealType==="dinner"}  onChange={e => setMealType(e.target.value)}/>
+                    <label htmlFor='dinner'>Dinner</label>
+                    <input id ="snack" type="radio" value="snack" checked={mealType==="snack"}  onChange={e => setMealType(e.target.value)}/>
+                    <label htmlFor='snack'>Snack</label>
                 </p>
                 <input type="submit"value ="Submit"/>
 
