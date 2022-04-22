@@ -13,7 +13,7 @@ function SearchForm({onSubmit}: Props) {
     const [healthLabel, setHealthLabel] = useState('');
     const [mealType, setMealType] = useState('');
 
-    //Set min & max
+    
  function handleSubmit(e:FormEvent) {
     e.preventDefault();
     const recipe: RecipeSearch ={
