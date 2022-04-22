@@ -26,7 +26,6 @@ function App() {
           <Route path ="/details" element = {<RecipeDetails/>}/>
           <Route path = "/searchResults" element = {<DisplaySearch/>}/>
           <Route path = "/favorites" element = {<FavoritesList/>}/>
-          <Route path = "/searchForm" element = {<SearchForm/>}/>
           <Route path = "*" element={<Navigate to = "/"/>}/>
         </Routes>
       </Router>

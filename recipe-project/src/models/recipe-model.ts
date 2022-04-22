@@ -19,4 +19,9 @@ export interface Recipe{
     ingredientLines: string[];
     id:number;
 }
-  
+
+export interface RecipeSearch{
+  label: string;
+  health: string;
+  calories: string;
+}
