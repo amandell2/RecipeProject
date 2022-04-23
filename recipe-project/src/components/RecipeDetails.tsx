@@ -1,6 +1,9 @@
 import { Recipe } from "../models/recipe-model";
 import { useLocation } from "react-router-dom";
 import "./RecipeDetails.css";
+import { useContext } from "react";
+import RecipeContext from "../context/RecipeContext";
+import { Link } from "react-router-dom";
 
 interface Props{
     recipe: Recipe;
@@ -8,6 +11,7 @@ interface Props{
 
 export default function RecipeDetails(){
     const location = useLocation();
+    const {addRecipe} = useContext(RecipeContext);
     const state = location.state as Props;
     const {recipe} = state;
    
@@ -17,17 +21,22 @@ export default function RecipeDetails(){
            <div className="RecipeDetails_sideBySide">
                <img src={recipe.image}></img>
                <ul>
-                   <li><a href={recipe.url}>Click here for Recipe Link!</a></li>
+                   <li>Recipe Source: {recipe.source}
+                   <br/>
+                   <a href={recipe.url}>Click here for Recipe Link!</a>
+                   </li>
                    <li>Serves: {recipe.yield}</li>
-                   {recipe.dietLabels != "" && <li>{recipe.dietLabels}</li>}
+                   {recipe.dietLabels != "" && <li>Dietary Info: {recipe.dietLabels}</li>}
                    <li>Calories: {recipe.calories.toFixed()}</li>
-                   <li>Total Time: {recipe.totalTime}</li>
-                   <li>Recipe Source: {recipe.source}</li>
+                   <li>Total Time: {recipe.totalTime} minutes</li>
                    <li>Ingredients: 
                     <ul>
                        {recipe.ingredientLines.map((ingredient)=><li>{ingredient}</li>)}
                     </ul>
                     </li>
+                    <div className="RecipeDetails_favBtnContainer">
+                    <button className="RecipeDetails_favBtn"onClick={()=>addRecipe(recipe)}>Add to Favorites</button>
+               </div>
                </ul>
             </div>
         </div>
