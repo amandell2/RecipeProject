@@ -30,14 +30,13 @@ export default function RecipeContextProvider({children}:Props){
 
         function removeRecipe (id: number ): void {
             const index = recipe.findIndex(recipe => recipe.id === id);
-            setRecipe(prev => [...prev.slice(0,index)])
+            setRecipe(prev => [...prev.slice(0,index), ...prev.slice(index+1)])
             console.log("removed recipe:", recipe[index]);
         }
 
         return(
             <RecipeContext.Provider value={{ recipe, addRecipe, removeRecipe}}>
                 {children}
-
             </RecipeContext.Provider>
 
         );
