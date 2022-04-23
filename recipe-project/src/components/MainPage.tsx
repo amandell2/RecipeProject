@@ -10,7 +10,7 @@ import SearchForm from "./SearchForm";
 
 export default function MainPage(){
     const [recipeList, setRecipeList] = useState<Hits[]>([]);
-    const {recipe, addRecipe} = useContext(RecipeContext);
+    const {addRecipe, recipeExists} = useContext(RecipeContext);
     const [showSearch, setShowSearch]= useState(false);
 
     useEffect(()=>{
@@ -39,7 +39,7 @@ export default function MainPage(){
                <BasicRecipe key={i} recipe={data.recipe}/>
                <div className="MainPage_BtnDisplay">
                     <Link to="/details" state={{recipe: data.recipe}}><button>Details</button></Link>
-                    <button onClick={()=>addRecipe(data.recipe)}>Add to Favorites</button>
+                    {!recipeExists(data.recipe) && <button onClick={()=>addRecipe(data.recipe)}>Add to Favorites</button>}
                </div>
                </div>
             )}

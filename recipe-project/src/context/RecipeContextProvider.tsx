@@ -10,32 +10,41 @@ interface Props{
 
 
 export default function RecipeContextProvider({children}:Props){
-    const [recipe, setRecipe]= useState<Recipe[]>([]);
+    const [favoriteRecipes, setFavoriteRecipes]= useState<Recipe[]>([]);
 
     function addRecipe(newRecipe:Recipe){
         console.log("added recipe:", newRecipe);
-        if(recipe.length===0){
+        if(favoriteRecipes.length===0){
             newRecipe.id=1;
         }else{
-        let lastRecipeId=recipe[recipe.length -1].id;
+        let lastRecipeId=favoriteRecipes[favoriteRecipes.length -1].id;
         ++lastRecipeId;
         newRecipe.id = lastRecipeId
         }
 
-        setRecipe(prev => [...prev, newRecipe]);
+        setFavoriteRecipes(prev => [...prev, newRecipe]);
         
     }
 
     
 
         function removeRecipe (id: number ): void {
-            const index = recipe.findIndex(recipe => recipe.id === id);
-            setRecipe(prev => [...prev.slice(0,index), ...prev.slice(index+1)])
-            console.log("removed recipe:", recipe[index]);
+            const index = favoriteRecipes.findIndex(recipe => recipe.id === id);
+            setFavoriteRecipes(prev => [...prev.slice(0,index), ...prev.slice(index+1)])
+            console.log("removed recipe:", favoriteRecipes[index]);
+        }
+
+        function recipeExists (recipe: Recipe): boolean {
+            const foundRecipe = favoriteRecipes.find((fav)=> fav.url === recipe.url);
+            if(foundRecipe !== undefined){
+                return true
+            }else{
+                return false
+            };
         }
 
         return(
-            <RecipeContext.Provider value={{ recipe, addRecipe, removeRecipe}}>
+            <RecipeContext.Provider value={{ favoriteRecipes, addRecipe, removeRecipe, recipeExists}}>
                 {children}
             </RecipeContext.Provider>
 

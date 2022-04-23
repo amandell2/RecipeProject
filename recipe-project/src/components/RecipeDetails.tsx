@@ -11,7 +11,7 @@ interface Props{
 
 export default function RecipeDetails(){
     const location = useLocation();
-    const {addRecipe} = useContext(RecipeContext);
+    const {addRecipe, recipeExists} = useContext(RecipeContext);
     const state = location.state as Props;
     const {recipe} = state;
    
@@ -35,7 +35,7 @@ export default function RecipeDetails(){
                     </ul>
                     </li>
                     <div className="RecipeDetails_favBtnContainer">
-                    <button className="RecipeDetails_favBtn"onClick={()=>addRecipe(recipe)}>Add to Favorites</button>
+                    {!recipeExists(recipe) && <button className="RecipeDetails_favBtn"onClick={()=>addRecipe(recipe)}>Add to Favorites</button>}
                </div>
                </ul>
             </div>

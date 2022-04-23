@@ -18,6 +18,7 @@ export interface Recipe{
     url: string;
     ingredientLines: string[];
     id:number;
+    favorite: boolean;
 }
 
 export interface RecipeSearch{

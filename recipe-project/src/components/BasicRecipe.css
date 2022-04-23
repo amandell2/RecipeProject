@@ -7,3 +7,15 @@
 h2{
     text-align: center;
 }
+
+.BasicRecipe_header{
+    display: flex;
+    align-items: center;
+    position: sticky;
+}
+
+.BasicRecipe_heart{
+    font-size: 400%;
+    color: palevioletred;
+    margin: 0px 10px 0px 20px;
+}

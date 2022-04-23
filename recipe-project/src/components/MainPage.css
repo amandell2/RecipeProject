@@ -43,6 +43,7 @@ button{
     font-size: 24px;
 }
 
+
 @media only screen and (max-width: 600px) {
     
     .MainPage_RecipeDisplay{
@@ -53,5 +54,9 @@ button{
 
     .MainPage_SingleRecipe{
         width: 60%;
+    }
+
+    h2{
+        font-size: larger;
     }
   }

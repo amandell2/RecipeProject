@@ -4,17 +4,18 @@ import {Recipe} from "../models/recipe-model";
 
 
 interface RecipeContextModel {
-    recipe: Recipe[];
+    favoriteRecipes: Recipe[];
     addRecipe: (recipe: Recipe) => void;
     removeRecipe:(id:number) => void;
+    recipeExists:(recipe: Recipe) => boolean;
     
 }
 
 const defaultValue: RecipeContextModel = {
-    recipe:[],
+    favoriteRecipes:[],
     addRecipe:() => {},
-    removeRecipe:() => {}
-
+    removeRecipe:() => {},
+    recipeExists:() => false
 }
 
 const RecipeContext = createContext(defaultValue);
