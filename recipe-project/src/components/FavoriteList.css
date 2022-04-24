@@ -1,74 +1,35 @@
-.FavoriteList .BasicRecipe_Container img {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    align-content: stretch;
-    justify-content: flex-end;
-    width: 20%;
-    color: red;
-}
-.FavoriteList .BasicRecipe_Container{
-    flex-direction: row;
-    justify-content:space-around;
-    border-style: double;
+.SingleFavorite{
+    width: 30%;
+    margin-top: 20px;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: rgba(201, 143, 143, 0.525);
+    border: double;
 }
 
 .FavoriteList {
-    position: relative;
-}
-
-.RemoveButton {
-    position: absolute;
-    top: 0px;
-    left:10px;
-}
-
-.FavoriteList .BasicRecipe_Container{
-    padding: 80px;
-    background-color: rgba(201, 143, 143, 0.525);
-}
-
-
-.MainPage_BtnDisplay{
-    display:block;
+    display: flex;
+    flex-flow: wrap;
     justify-content: space-evenly;
-    flex-direction: row;
-}
-
-img{
-    width: 20%;
-   
-}
-
-.FavoriteList button{
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: 900;
-    background-color: #915A5A;
-    color: peachpuff;
-    display:inline;
-    align-items: center;
-    position:absolute;
-    right:300px;
-    
-
 }
 
 
 @media only screen and (max-width: 600px) {
     
-    .MainPage_RecipeDisplay{
+    .FavoriteList{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .MainPage_SingleRecipe{
+    .SingleFavorite{
         width: 60%;
     }
-  }
 
+    h2{
+        font-size: larger;
+    }
+  }
 
 
 

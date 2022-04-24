@@ -9,10 +9,10 @@ export default function FavoritesList(){
     return(
         <div className="FavoriteList">
             {favoriteRecipes.map((favoriteRecipe, i)=> 
-            <>
+            <div className="SingleFavorite">
             <BasicRecipe key={i} recipe={favoriteRecipe} />
             <button className="RemoveButton" onClick={()=>removeRecipe(favoriteRecipe.id)}>Remove from Favorites</button>
-            </>
+            </div>
             )}
         </div>
     )

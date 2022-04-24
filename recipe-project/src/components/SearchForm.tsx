@@ -37,7 +37,7 @@ function SearchForm({onSubmit}: Props) {
                 <p className='SectionOne'>
                     <label htmlFor='label'>Keyword</label>
                     <input id = "label" value = {label} onChange ={e => setlabel(e.target.value)} required/> 
-                    <label htmlFor="health_labels">Restrictions</label>
+                    <label htmlFor="health_labels" className="RestrictionsLabel">Restrictions</label>
                     {/*<input id='health_labels' value={healthLabel} onChange={e => setHealthLabel(e.target.value)}/>*/}
                     <select id='health_labels' value={healthLabel} onChange={e => setHealthLabel(e.target.value)}>
                         <option value="empty"></option>
@@ -60,9 +60,9 @@ function SearchForm({onSubmit}: Props) {
                         <input id ="snack" type="radio" value="snack" checked={mealType==="snack"}  onChange={e => setMealType(e.target.value)}/>
                         <label htmlFor='snack'>Snack</label>
                     </p>
-                    
+                    <input className='submit' type="submit"value ="Submit"/>
                 </p>
-                <input className='submit' type="submit"value ="Submit"/>
+                
 
                      
 
