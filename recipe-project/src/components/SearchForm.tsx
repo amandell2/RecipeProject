@@ -1,5 +1,6 @@
 import {FormEvent, useState} from 'react';
 import {RecipeSearch} from "../models/recipe-model"
+import './SearchForm.css';
 
 // Add call back function from parent
 interface Props {
@@ -33,7 +34,7 @@ function SearchForm({onSubmit}: Props) {
     return(
         <div className='SearchForm'>
             <form onSubmit={handleSubmit}>
-                <p>
+                <p className='SectionOne'>
                     <label htmlFor='label'>Keyword</label>
                     <input id = "label" value = {label} onChange ={e => setlabel(e.target.value)} required/> 
                     <label htmlFor="health_labels">Restrictions</label>
@@ -47,18 +48,21 @@ function SearchForm({onSubmit}: Props) {
                         <option value="tree-nut-free">tree-nut-free</option>
                     </select>
                 </p>
-                <p>
-                    <p>Meal Type</p>
-                    <input id ="breakfast" type="radio" value="breakfast" checked={mealType==="breakfast"} onChange={e => setMealType(e.target.value)}/>
-                    <label htmlFor='breakfast'>Breakfast</label>
-                    <input id ="lunch" type="radio" value="lunch" checked={mealType==="lunch"}  onChange={e => setMealType(e.target.value)}/>
-                    <label htmlFor='lunch'>Lunch</label>
-                    <input id ="dinner" type="radio" value="dinner" checked={mealType==="dinner"}  onChange={e => setMealType(e.target.value)}/>
-                    <label htmlFor='dinner'>Dinner</label>
-                    <input id ="snack" type="radio" value="snack" checked={mealType==="snack"}  onChange={e => setMealType(e.target.value)}/>
-                    <label htmlFor='snack'>Snack</label>
+                <p className='SectionTwo'>
+                    <p className='MealType'>Meal Type</p>
+                    <p className='MealButtons'>
+                        <input id ="breakfast" type="radio" value="breakfast" checked={mealType==="breakfast"} onChange={e => setMealType(e.target.value)}/>
+                        <label  className="breakfast"htmlFor='breakfast'>Breakfast</label>
+                        <input id ="lunch" type="radio" value="lunch" checked={mealType==="lunch"}  onChange={e => setMealType(e.target.value)}/>
+                        <label htmlFor='lunch'>Lunch</label>
+                        <input id ="dinner" type="radio" value="dinner" checked={mealType==="dinner"}  onChange={e => setMealType(e.target.value)}/>
+                        <label htmlFor='dinner'>Dinner</label>
+                        <input id ="snack" type="radio" value="snack" checked={mealType==="snack"}  onChange={e => setMealType(e.target.value)}/>
+                        <label htmlFor='snack'>Snack</label>
+                    </p>
+                    
                 </p>
-                <input type="submit"value ="Submit"/>
+                <input className='submit' type="submit"value ="Submit"/>
 
                      
 
